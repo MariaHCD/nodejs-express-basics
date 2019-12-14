@@ -9,7 +9,12 @@ const adminModule = require('./admin');
 
 router.get('/', (req, res, next) => {
     const products = adminModule.products;
-    res.render('shop', { products, pageTitle: 'Shop', path: '/' });
+    res.render('shop', {
+        products, pageTitle: 'Shop',
+        path: '/', hasProducts: products.length,
+        activeShop: true,
+        productCSS: true
+    });
 });
 
 module.exports = router;
